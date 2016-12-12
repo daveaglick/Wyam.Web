@@ -41,6 +41,10 @@ Here are some awesome Wyam-related goodies from the community. Are you doing som
 
 # Blog Posts
 
+- **[Exploring Wyam - a .NET Static Site Content Generator](http://www.hanselman.com/blog/ExploringWyamANETStaticSiteContentGenerator.aspx)**
+
+  Scott Hanselman - December 11, 2016
+
 - **[Wyam I using a static site generator?](http://arjanvanrijn.com/posts/Wyam-i-using-a-static-site-generator)**
 
   Arjan van Rijn - March 23, 2016
