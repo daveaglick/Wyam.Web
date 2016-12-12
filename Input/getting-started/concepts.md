@@ -12,7 +12,7 @@ A *recipe* is a pre-configured series of modules and pipelines (see below). <a h
 # Themes
 ---
 
-Each *theme* contains a set of content such as CSS files, layouts, etc. that apply to a specific recipe. A theme can be used to get up and running quickly with a given recipe by providing the set of resources the recipe requires. Because each recipe is a totally different set of modules, pipelines, metadataa, etc. a given theme is only applicable to a specific recipe.
+Each *theme* contains a set of content such as CSS files, layouts, etc. that apply to a specific recipe. A theme can be used to get up and running quickly with a given recipe by providing the set of resources the recipe requires. Because each recipe is a totally different set of modules, pipelines, metadata, etc. a given theme is only applicable to a specific recipe.
 
 # Modules
 ---
