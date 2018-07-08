@@ -24,13 +24,13 @@ public class KeysModel
 
     public KeysModel(string targetType, bool alphaSort = true)
         : this(targetType, null, alphaSort)
-    {        
+    {
     }
 }
 
 Pipelines.InsertBefore(Docs.RenderPages, "Modules",
     Execute(ctx =>
-	    AnalyzeCSharp()
+        AnalyzeCSharp()
             .WithAssemblies(ctx.List<string>(DocsKeys.AssemblyFiles))
             .WithProjects(ctx.List<string>(DocsKeys.ProjectFiles))
             .WithNamedTypes(x => x.AllInterfaces.Any(y => y.Name == "IModule") && !x.IsAbstract)
@@ -43,21 +43,21 @@ Pipelines.InsertBefore(Docs.RenderPages, "Modules",
                 {
                     name = "indx";  // Special case for the Index module
                 }
-                
+
                 // Remove generic types
                 int genericParamsIndex = name.IndexOf("<");
                 if(genericParamsIndex != -1)
                 {
                     name = name.Substring(0, genericParamsIndex);
                 }
-                
+
                 return new FilePath($"modules/{name}.html");
             })
     ),
     Branch(
         SearchIndex(new SearchIndexItem(
-            @ctx.GetLink(@doc), 
-            @doc.String(CodeAnalysisKeys.DisplayName), 
+            @ctx.GetLink(@doc),
+            @doc.String(CodeAnalysisKeys.DisplayName),
             @doc.String(CodeAnalysisKeys.DisplayName))
         )
             .WithScript((scriptBuilder, context) =>
@@ -65,28 +65,44 @@ Pipelines.InsertBefore(Docs.RenderPages, "Modules",
                 // Use a custom tokenizer that splits on camel case characters
                 // https://github.com/olivernn/lunr.js/issues/230#issuecomment-244790648
                 scriptBuilder.Insert(0, @"
-var camelCaseTokenizer = function (obj) {
+var camelCaseTokenizer = function (builder) {
+
+  var pipelineFunction = function (token) {
     var previous = '';
-    return obj.toString().trim().split(/[\s\-]+|(?=[A-Z])/).reduce(function(acc, cur) {
-        var current = cur.toLowerCase();
-        if(acc.length === 0) {
-            previous = current;
-            return acc.concat(current);
-        }
-        previous = previous.concat(current);
-        return acc.concat([current, previous]);
+    // split camelCaseString to on each word and combined words
+    // e.g. camelCaseTokenizer -> ['camel', 'case', 'camelcase', 'tokenizer', 'camelcasetokenizer']
+    var tokenStrings = token.toString().trim().split(/[\s\-]+|(?=[A-Z])/).reduce(function(acc, cur) {
+      var current = cur.toLowerCase();
+      if (acc.length === 0) {
+        previous = current;
+        return acc.concat(current);
+      }
+      previous = previous.concat(current);
+      return acc.concat([current, previous]);
     }, []);
-}
-lunr.tokenizer.registerFunction(camelCaseTokenizer, 'camelCaseTokenizer')");
+
+    // return token for each string
+    // will copy any metadata on input token
+    return tokenStrings.map(function(tokenString) {
+      return token.clone(function(str) {
+        return tokenString;
+      })
+    });
+  }
+
+  lunr.Pipeline.registerFunction(pipelineFunction, 'camelCaseTokenizer')
+
+  builder.pipeline.before(lunr.stemmer, pipelineFunction)
+}");
                 scriptBuilder.Replace("this.ref('id');", @"this.ref('id');
-        this.tokenizer(camelCaseTokenizer);");
-                return scriptBuilder.ToString();
-            })
+        this.use(camelCaseTokenizer);");
+                        return scriptBuilder.ToString();
+                })
             .WithPath("assets/js/modulesSearchIndex.js"),
-        WriteFiles()        
+        WriteFiles()
     ),
-	Razor().WithLayout("/_ModulesLayout.cshtml"),
+    Razor().WithLayout("/_ModulesLayout.cshtml"),
     Headings(),
     HtmlInsert("div#infobar-headings", @ctx.GenerateInfobarHeadings(@doc)),
-	WriteFiles()
+    WriteFiles()
 );
