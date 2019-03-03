@@ -102,6 +102,9 @@ Many sites and blogs are realizing the benefits of an extensible, flexible, nati
 - **[Richter-Notizen](http://richter-notizen.de/)**  
   The personal blog of Lars Richter.
 
+- **[Ryan Rousseau](https://blog.rousseau.dev/)**  
+  The personal blog of Ryan Rousseau.
+
 - **[Salvo(z)](https://salvoz.com/)**  
   The personal blog of Adam and Jennifer Salvo.
 
