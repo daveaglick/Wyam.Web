@@ -7,6 +7,9 @@ RedirectFrom: community
 There is a growing community of developers exploring static generators and Wyam. If you've written a blog post that involves Wyam, or know of one, please let us know by submitting a PR with additions to this page.
 
 <!-- Use two spaces after the title for proper formatting -->
+- **[Getting Reacquainted with Wyam - Creating a Blog with Wyam in 2019](https://blog.rousseau.dev/posts/getting-reacquainted-with-wyam)**  
+  Ryan Rousseau, March 2, 2019
+
 - **[Switching my blog to Wyam and hosting it on Netlify](https://ml-software.ch/posts/switching-my-blog-to-wyam-and-hosting-it-on-netlify)**  
   Matteo, January 29, 2019
   
