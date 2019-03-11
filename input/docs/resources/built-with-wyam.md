@@ -110,7 +110,10 @@ Many sites and blogs are realizing the benefits of an extensible, flexible, nati
   
 - **[Swenug](https://swenug.se)** ([source code](https://github.com/SweNug/swenug.github.io/))  
   The website for SweNug - Sweden .Net user group.
-  
+ 
+- **[Techwatching](https://www.techwatching.dev)**  
+  The personal blog of Alexandre Nedelec.
+   
 - **[win32.io](http://win32.io)**  
 
 - **[Wyam](https://wyam.io)** ([source code](https://github.com/Wyamio/Wyam.Web))  
