@@ -44,6 +44,9 @@ Many sites and blogs are realizing the benefits of an extensible, flexible, nati
 
 - **[Erik Onarheim](https://erikonarheim.com/)** ([source code](https://github.com/eonarheim/eonarheim.github.io))  
   The personal blog of Erik Onarheim.
+  
+- **[FluentSpecification](https://michalkowal.github.io/FluentSpecification/)** ([source code](https://github.com/michalkowal/FluentSpecification/tree/master/docs/input))  
+  .NET implementation of Specification design pattern.
 
 - **[Gary Ewan Park](http://www.gep13.co.uk/)** ([source code](https://github.com/gep13/gep13))  
   The personal blog of Gary Ewan Park.
