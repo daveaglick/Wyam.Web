@@ -16,7 +16,7 @@ A configuration file typically looks like this:
 // ...
 ```
 
-When Wyam starts, the configuration file is compiled by Roslyn (a C# compiler) and strting with Wyam 1.0 a cached copy of the resulting compilation is stored on disk at `config.wyam.dll` by default. A hash of the config file is also stored at `config.wyam.hash`. These two files improve startup performance by allowing Wyam to skip the compilation phase if the config file has previously been processed and its contents haven't changed.
+When Wyam starts, the configuration file is compiled by Roslyn (a C# compiler) and starting with Wyam 1.0 a cached copy of the resulting compilation is stored on disk at `config.wyam.dll` by default. A hash of the config file is also stored at `config.wyam.hash`. These two files improve startup performance by allowing Wyam to skip the compilation phase if the config file has previously been processed and its contents haven't changed.
 
 # Preprocessor Directives
 
