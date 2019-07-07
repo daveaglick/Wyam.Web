@@ -26,7 +26,7 @@ Shortcodes can be nested, but keep in mind the current processing phase. If a sh
 
 ## Shortcode Names
 
-By convention shortcode names use CamelCase due to the fact that most of them come from .NET classes, which are also named with CamelCase. That said, the shortcode name is case-insensitive so if you prefer to use some other casing convention, you can.
+By convention shortcode names use PascalCase due to the fact that most of them come from .NET classes, which are also named with PascalCase. That said, the shortcode name is case-insensitive so if you prefer to use some other casing convention, you can.
 
 ## Parameters
 
