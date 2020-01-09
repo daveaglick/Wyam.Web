@@ -86,6 +86,9 @@ Many sites and blogs are realizing the benefits of an extensible, flexible, nati
 
 - **[Martin Vích](https://www.martinvich.net)**  
   The personal blog of Martin Vích.
+  
+- **[Michael Burch](https://www.michaelburch.net)** ([source code](https://github.com/michaelburch/michaelburchdotnet))  
+  The personal blog of Michael Burch.
 
 - **[Mind Vortex](http://www.petrikvandervelde.nl/)** ([source code](https://github.com/pvandervelde/mindvortex))  
   The personal blog of Patrick van der Velde.
